@@ -1,0 +1,260 @@
+1) <!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:left">
+    <h1 style="color: blueviolet">
+       {{ title }}</h1><br>
+      </div>
+   <input type="number" id="num" #num>
+   <input type="number" id="num2" #num2><br>
+
+    <button type="submit" (click)='multiply(num.value,num2.value)'>multiply</button>
+    <button type="submit" (click)='divide(num.value,num2.value)'>divide</button>
+    <button type="submit" (click)='add(num.value,num2.value)'>add</button>
+    <button type="submit" (click)='subract(num.value,num2.value)'>subract</button>
+    <div *ngIf="showtext==true" id="res" >{{res}} </div> 
+     
+ -------------------------
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.styl']
+})
+export class AppComponent {
+  title="Calculator";
+  public showtext=false;
+ public res:number;
+  public multiply(value,value1){
+   this.res=value*value1;
+   this.showtext=true;
+  }
+  public divide(value,value1){
+    this.res=value/value1;
+    this.showtext=true;
+   }
+   public add(value,value1){
+    this.res=+value + +value1;
+    this.showtext=true;
+   }
+   public subract(value,value1){
+    this.res=value-value1;
+    this.showtext=true;
+   }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+4)<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:left">
+    <h1 style="color: blueviolet">
+       {{ title }}</h1><br>
+      </div>
+ <input type="number" id=num #num><br>
+ <button type="submit" (click)='milli(num.value)'>Milli</button>
+ <button type="submit" (click)='centi(num.value)'>Centi</button>
+ <button type="submit" (click)='deci(num.value)'>Deci</button>
+ <button type="submit" (click)='deca(num.value)'>Deca</button>
+ <button type="submit" (click)='hecto(num.value)'>Hecto</button>
+ <button type="submit" (click)='kilo(num.value)'>Kilo</button>
+<div>{{res}}</div>
+
+ ----------------------------
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.styl']
+})
+export class AppComponent {
+  title="Conversion from Meter to any";
+res:number;
+public milli(value){
+  this.res=value*1000;
+}
+public centi(value){
+  this.res=value*100;
+}
+public deci(value){
+  this.res=value*10;
+}
+public deca(value){
+  this.res=value/10;
+}
+public hecto(value){
+  this.res=value/100;
+}
+public kilo(value){
+  this.res=value/1000;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+5)<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1 style="color: blueviolet">
+       {{ title }}</h1><br>
+            <h4>Product Details:</h4>  </div>
+        
+        <div>
+        <table class="TFtable" align="center">  
+        <tr >   
+            <th>id</th> <th>firstName</th>  <th>lastName</th> <th>email</th>  
+        </tr>  
+         <tr  *ngFor="let Prod of Products">  
+            <td>{{Prod.id}}</td>  
+            <td>{{Prod.firstName| uppercase}}</td>  
+            <td>{{Prod.lastName}}</td>  
+            <td>{{Prod.email}}</td>  
+        </tr>  
+          
+        </table>  
+        
+      
+      
+      </div> 
+    
+  ------------------------------
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.styl']
+})
+export class AppComponent {
+  title="Conversion from Meter to any";
+ 
+
+  public Products = [  
+    { id: '1', firstName: 'Roshini', lastName: 'Sundar', email: 'roshini@gmail.com' },
+    { id: '2', firstName: 'Guna', lastName: 'vignesh', email: 'guna@gmail.com' },
+    { id: '3', firstName: 'hema', lastName: 'selvaraj', email: 'hema@gmail.com' },
+    { id: '4', firstName: 'safana', lastName: 'abdul', email: 'safana@gmail.com' },
+    { id: '5', firstName: 'raji', lastName: 'jayakumar', email: 'raji@gmail.com' }
+   ];  
+   }
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+6)<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1 style="color: blueviolet">
+       {{ title }}</h1><br>
+            </div>
+            <div style="text-align: center">
+<input type="text" id="name" #name>
+<button type="submit" (click)='evaluate(name.value)'>change</button><br>
+Uppercase pipe<br>
+{{res| uppercase}}<br>
+lowercase pipe<br>
+{{res| lowercase}}
+        
+</div>      
+----------------------------
+import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.styl']
+})
+export class AppComponent {
+  title="Welcome to Task5";
+ res:string;
+ 
+
+ public evaluate(value)
+{
+this.res=value;
+
+} 
+   }
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+7)import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.styl']
+})
+export class AppComponent {
+  title="Date pipe";
+  public today=new Date();
+   }
+-----------------------------
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1 style="color: blueviolet">
+       {{ title }}</h1><br>
+            </div>
+            <table border="1" width="500" align="center">
+             {{today|date:'d/M/yyy'}}<br>
+             {{today|date:'shortTime'}}
+            
+           </table>     
+----------------------------------------------------------------------------------------------------------------------------------------------
+8)<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1 style="color:black">
+       {{ title }}</h1>
+       <h1 style="color: blue">Todo App</h1>
+<input type="text" id="name" #name>
+<button type="submit" (click)='view(name.value)'>Add</button><br><br>
+  <div *ngIf="show"><li>{{name.value}}</li></div> 
+            </div>
+   -------------------------------
+import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.styl']
+})
+export class AppComponent {
+  title="Welcome to task8!";
+  res:string;
+  show=false;
+ public view(value){
+this.res=value;
+this.show=true;
+  }
+
+   }
+----------------------------------------------------------------------------------------------------------------------------------------------
+9)<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+       {{ title }}<br><br> check Greatest</h1>
+      
+From:<input type="number" id="num1" #num1><br><br>
+To:<input type="number" id="num2" #num2><br>
+<button type="submit" (click)='view(num1.value,num2.value)'>submit</button><br><br>
+  <div *ngIf="show">enter the some values and press enter</div>
+  {{res}} 
+            </div>
+  ----------------------------------
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.styl']
+})
+export class AppComponent {
+  title="Welcome to task8!";
+  res:string;
+  show=true;
+ public view(value,value1){
+   this.show=false;
+
+if(value>value1){
+  this.res="From value is Greater";
+}
+if(value<value1){
+  this.res="To value is Greater";
+}
+if(value==value1){
+  this.res="Both Values are Equal";
+}
+
+
+  }
+
+   }
+------------------------------------------------------------------------------------------------------------------------------------
